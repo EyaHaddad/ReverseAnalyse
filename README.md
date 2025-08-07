@@ -1,21 +1,13 @@
-# DeepWiki-Open
+# Our Reverse Analysis
 
-![DeepWiki Banner](screenshots/Deepwiki.png)
-
-**DeepWiki** is my own implementation attempt of DeepWiki, automatically creates beautiful, interactive wikis for any GitHub, GitLab, or BitBucket repository! Just enter a repo name, and DeepWiki will:
+**Reverse Analysis** is my own implementation attempt of Reverse Analysis, automatically creates beautiful, interactive wikis for any GitHub, GitLab, or BitBucket repository! Just enter a repo name, and Reverse Analysis will:
 
 1. Analyze the code structure
 2. Generate comprehensive documentation
 3. Create visual diagrams to explain how everything works
 4. Organize it all into an easy-to-navigate wiki
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/sheing)
-[![Tip in Crypto](https://tip.md/badge.svg)](https://tip.md/sng-asyncfunc)
-[![Twitter/X](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/sashimikun_void)
-[![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/VQMBGR8u5v)
-
-[English](./README.md) | [简体中文](./README.zh.md) | [繁體中文](./README.zh-tw.md) | [日本語](./README.ja.md) | [Español](./README.es.md) | [한국어](./README.kr.md) | [Tiếng Việt](./README.vi.md) | [Português Brasileiro](./README.pt-br.md) | [Français](./README.fr.md) | [Русский](./README.ru.md)
-
+[English](./README.md)
 ## ✨ Features
 
 - **Instant Documentation**: Turn any GitHub, GitLab or BitBucket repo into a wiki in seconds
@@ -33,8 +25,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/AsyncFuncAI/deepwiki-open.git
-cd deepwiki-open
+git clone https://github.com/AsyncFuncAI/Reverse Analysis-open.git
+cd Reverse Analysis-open
 
 # Create a .env file with your API keys
 echo "GOOGLE_API_KEY=your_google_api_key" > .env
@@ -51,7 +43,7 @@ echo "AZURE_OPENAI_VERSION=your_azure_openai_version" >> .env
 docker-compose up
 ```
 
-For detailed instructions on using DeepWiki with Ollama and Docker, see [Ollama Instructions](Ollama-instruction.md).
+For detailed instructions on using Reverse Analysis with Ollama and Docker, see [Ollama Instructions](Ollama-instruction.md).
 
 > 💡 **Where to get these keys:**
 > - Get a Google API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
@@ -101,7 +93,7 @@ npm run dev
 yarn dev
 ```
 
-#### Step 4: Use DeepWiki!
+#### Step 4: Use Reverse Analysis!
 
 1. Open [http://localhost:3000](http://localhost:3000) in your browser
 2. Enter a GitHub, GitLab, or Bitbucket repository (like `https://github.com/openai/codex`, `https://github.com/microsoft/autogen`, `https://gitlab.com/gitlab-org/gitlab`, or `https://bitbucket.org/redradish/atlassian_app_versions`)
@@ -110,7 +102,7 @@ yarn dev
 
 ## 🔍 How It Works
 
-DeepWiki uses AI to:
+Reverse Analysis uses AI to:
 
 1. Clone and analyze the GitHub, GitLab, or Bitbucket repository (including private repos with token authentication)
 2. Create embeddings of the code for smart retrieval
@@ -145,7 +137,7 @@ graph TD
     D --> F[Create Visual Diagrams]
     E --> G[Organize as Wiki]
     F --> G
-    G --> H[Interactive DeepWiki]
+    G --> H[Interactive Reverse Analysis]
 
     classDef process stroke-width:2px;
     classDef data stroke-width:2px;
@@ -161,7 +153,7 @@ graph TD
 ## 🛠️ Project Structure
 
 ```
-deepwiki/
+Reverse Analysis/
 ├── api/                  # Backend API server
 │   ├── main.py           # API entry point
 │   ├── api.py            # FastAPI implementation
@@ -182,7 +174,7 @@ deepwiki/
 
 ## 🤖 Provider-Based Model Selection System
 
-DeepWiki now implements a flexible provider-based model selection system supporting multiple LLM providers:
+Reverse Analysis now implements a flexible provider-based model selection system supporting multiple LLM providers:
 
 ### Supported Providers and Models
 
@@ -212,12 +204,12 @@ OPENAI_BASE_URL=https://custom-api-endpoint.com/v1  # Optional, for custom OpenA
 OLLAMA_HOST=your_ollama_host # Optional, if Ollama is not local. default: http://localhost:11434
 
 # Configuration Directory
-DEEPWIKI_CONFIG_DIR=/path/to/custom/config/dir  # Optional, for custom config file location
+Reverse Analysis_CONFIG_DIR=/path/to/custom/config/dir  # Optional, for custom config file location
 ```
 
 ### Configuration Files
 
-DeepWiki uses JSON configuration files to manage various aspects of the system:
+Reverse Analysis uses JSON configuration files to manage various aspects of the system:
 
 1. **`generator.json`**: Configuration for text generation models
    - Defines available model providers (Google, OpenAI, OpenRouter, Azure, Ollama)
@@ -233,7 +225,7 @@ DeepWiki uses JSON configuration files to manage various aspects of the system:
    - Contains file filters to exclude certain files and directories
    - Defines repository size limits and processing rules
 
-By default, these files are located in the `api/config/` directory. You can customize their location using the `DEEPWIKI_CONFIG_DIR` environment variable.
+By default, these files are located in the `api/config/` directory. You can customize their location using the `Reverse Analysis_CONFIG_DIR` environment variable.
 
 ### Custom Model Selection for Service Providers
 
@@ -253,7 +245,7 @@ The OpenAI Client's base_url configuration is designed primarily for enterprise 
 - Allows organizations to use their own self-hosted or custom-deployed LLM services
 - Supports integration with third-party OpenAI API-compatible services
 
-**Coming Soon**: In future updates, DeepWiki will support a mode where users need to provide their own API keys in requests. This will allow enterprise customers with private channels to use their existing API arrangements without sharing credentials with the DeepWiki deployment.
+**Coming Soon**: In future updates, Reverse Analysis will support a mode where users need to provide their own API keys in requests. This will allow enterprise customers with private channels to use their existing API arrangements without sharing credentials with the Reverse Analysis deployment.
 
 ## 🧩 Using OpenAI-Compatible Embedding Models (e.g., Alibaba Qwen)
 
@@ -271,7 +263,7 @@ This allows you to seamlessly switch to any OpenAI-compatible embedding service 
 
 ### Logging
 
-DeepWiki uses Python's built-in `logging` module for diagnostic output. You can configure the verbosity and log file destination via environment variables:
+Reverse Analysis uses Python's built-in `logging` module for diagnostic output. You can configure the verbosity and log file destination via environment variables:
 
 | Variable        | Description                                                        | Default                      |
 |-----------------|--------------------------------------------------------------------|------------------------------|
@@ -320,32 +312,32 @@ docker-compose up
 | `OLLAMA_HOST`        | Ollama Host (default: http://localhost:11434)                | No | Required only if you want to use external Ollama server                                                  |
 | `PORT`               | Port for the API server (default: 8001)                      | No | If you host API and frontend on the same machine, make sure change port of `SERVER_BASE_URL` accordingly |
 | `SERVER_BASE_URL`    | Base URL for the API server (default: http://localhost:8001) | No |
-| `DEEPWIKI_AUTH_MODE` | Set to `true` or `1` to enable authorization mode. | No | Defaults to `false`. If enabled, `DEEPWIKI_AUTH_CODE` is required. |
-| `DEEPWIKI_AUTH_CODE` | The secret code required for wiki generation when `DEEPWIKI_AUTH_MODE` is enabled. | No | Only used if `DEEPWIKI_AUTH_MODE` is `true` or `1`. |
+| `Reverse Analysis_AUTH_MODE` | Set to `true` or `1` to enable authorization mode. | No | Defaults to `false`. If enabled, `Reverse Analysis_AUTH_CODE` is required. |
+| `Reverse Analysis_AUTH_CODE` | The secret code required for wiki generation when `Reverse Analysis_AUTH_MODE` is enabled. | No | Only used if `Reverse Analysis_AUTH_MODE` is `true` or `1`. |
 
 If you're not using ollama mode, you need to configure an OpenAI API key for embeddings. Other API keys are only required when configuring and using models from the corresponding providers.
 
 ## Authorization Mode
 
-DeepWiki can be configured to run in an authorization mode, where wiki generation requires a valid authorization code. This is useful if you want to control who can use the generation feature.
+Reverse Analysis can be configured to run in an authorization mode, where wiki generation requires a valid authorization code. This is useful if you want to control who can use the generation feature.
 Restricts frontend initiation and protects cache deletion, but doesn't fully prevent backend generation if API endpoints are hit directly.
 
 To enable authorization mode, set the following environment variables:
 
-- `DEEPWIKI_AUTH_MODE`: Set this to `true` or `1`. When enabled, the frontend will display an input field for the authorization code.
-- `DEEPWIKI_AUTH_CODE`: Set this to the desired secret code. Restricts frontend initiation and protects cache deletion, but doesn't fully prevent backend generation if API endpoints are hit directly.
+- `Reverse Analysis_AUTH_MODE`: Set this to `true` or `1`. When enabled, the frontend will display an input field for the authorization code.
+- `Reverse Analysis_AUTH_CODE`: Set this to the desired secret code. Restricts frontend initiation and protects cache deletion, but doesn't fully prevent backend generation if API endpoints are hit directly.
 
-If `DEEPWIKI_AUTH_MODE` is not set or is set to `false` (or any other value than `true`/`1`), the authorization feature will be disabled, and no code will be required.
+If `Reverse Analysis_AUTH_MODE` is not set or is set to `false` (or any other value than `true`/`1`), the authorization feature will be disabled, and no code will be required.
 
 ### Docker Setup
 
-You can use Docker to run DeepWiki:
+You can use Docker to run Reverse Analysis:
 
 #### Running the Container
 
 ```bash
 # Pull the image from GitHub Container Registry
-docker pull ghcr.io/asyncfuncai/deepwiki-open:latest
+docker pull ghcr.io/asyncfuncai/Reverse Analysis-open:latest
 
 # Run the container with environment variables
 docker run -p 8001:8001 -p 3000:3000 \
@@ -358,7 +350,7 @@ docker run -p 8001:8001 -p 3000:3000 \
   -e AZURE_OPENAI_VERSION=your_azure_openai_version \
 
   -v ~/.adalflow:/root/.adalflow \
-  ghcr.io/asyncfuncai/deepwiki-open:latest
+  ghcr.io/asyncfuncai/Reverse Analysis-open:latest
 ```
 
 This command also mounts `~/.adalflow` on your host to `/root/.adalflow` in the container. This path is used to store:
@@ -395,7 +387,7 @@ echo "OLLAMA_HOST=your_ollama_host" >> .env
 docker run -p 8001:8001 -p 3000:3000 \
   -v $(pwd)/.env:/app/.env \
   -v ~/.adalflow:/root/.adalflow \
-  ghcr.io/asyncfuncai/deepwiki-open:latest
+  ghcr.io/asyncfuncai/Reverse Analysis-open:latest
 ```
 
 This command also mounts `~/.adalflow` on your host to `/root/.adalflow` in the container. This path is used to store:
@@ -411,11 +403,11 @@ If you want to build the Docker image locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/AsyncFuncAI/deepwiki-open.git
-cd deepwiki-open
+git clone https://github.com/AsyncFuncAI/Reverse Analysis-open.git
+cd Reverse Analysis-open
 
 # Build the Docker image
-docker build -t deepwiki-open .
+docker build -t Reverse Analysis-open .
 
 # Run the container
 docker run -p 8001:8001 -p 3000:3000 \
@@ -426,7 +418,7 @@ docker run -p 8001:8001 -p 3000:3000 \
   -e AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint \
   -e AZURE_OPENAI_VERSION=your_azure_openai_version \
   -e OLLAMA_HOST=your_ollama_host \
-  deepwiki-open
+  Reverse Analysis-open
 ```
 
 #### Using Self-Signed Certificates in Docker
@@ -456,14 +448,14 @@ For more details, see the [API README](./api/README.md).
 
 ## 🔌 OpenRouter Integration
 
-DeepWiki now supports [OpenRouter](https://openrouter.ai/) as a model provider, giving you access to hundreds of AI models through a single API:
+Reverse Analysis now supports [OpenRouter](https://openrouter.ai/) as a model provider, giving you access to hundreds of AI models through a single API:
 
 - **Multiple Model Options**: Access models from OpenAI, Anthropic, Google, Meta, Mistral, and more
 - **Simple Configuration**: Just add your OpenRouter API key and select the model you want to use
 - **Cost Efficiency**: Choose models that fit your budget and performance needs
 - **Easy Switching**: Toggle between different models without changing your code
 
-### How to Use OpenRouter with DeepWiki
+### How to Use OpenRouter with Reverse Analysis
 
 1. **Get an API Key**: Sign up at [OpenRouter](https://openrouter.ai/) and get your API key
 2. **Add to Environment**: Add `OPENROUTER_API_KEY=your_key` to your `.env` file
@@ -503,8 +495,8 @@ To use DeepResearch, simply toggle the "Deep Research" switch in the Ask interfa
 
 ## 📱 Screenshots
 
-![DeepWiki Main Interface](screenshots/Interface.png)
-*The main interface of DeepWiki*
+![Reverse Analysis Main Interface](screenshots/Interface.png)
+*The main interface of Reverse Analysis*
 
 ![Private Repository Support](screenshots/privaterepo.png)
 *Access private repositories with personal access tokens*
@@ -514,9 +506,9 @@ To use DeepResearch, simply toggle the "Deep Research" switch in the Ask interfa
 
 ### Demo Video
 
-[![DeepWiki Demo Video](https://img.youtube.com/vi/zGANs8US8B4/0.jpg)](https://youtu.be/zGANs8US8B4)
+[![Reverse Analysis Demo Video](https://img.youtube.com/vi/zGANs8US8B4/0.jpg)](https://youtu.be/zGANs8US8B4)
 
-*Watch DeepWiki in action!*
+*Watch Reverse Analysis in action!*
 
 ## ❓ Troubleshooting
 
@@ -554,4 +546,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=AsyncFuncAI/deepwiki-open&type=Date)](https://star-history.com/#AsyncFuncAI/deepwiki-open&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=AsyncFuncAI/Reverse Analysis-open&type=Date)](https://star-history.com/#AsyncFuncAI/Reverse Analysis-open&Date)
