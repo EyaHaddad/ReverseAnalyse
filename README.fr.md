@@ -1,9 +1,7 @@
 
-# DeepWiki-Open
+# ReverseAnalyse
 
-![Bannière DeepWiki](screenshots/Deepwiki.png)
-
-**DeepWiki** est ma propre tentative d’implémentation de DeepWiki, un outil qui crée automatiquement des wikis magnifiques et interactifs pour n’importe quel dépôt GitHub, GitLab ou Bitbucket ! Il suffit d’entrer un nom de dépôt, et DeepWiki :
+**ReverseAnalyse** est ma propre tentative d’implémentation de ReverseAnalyse, un outil qui crée automatiquement des wikis magnifiques et interactifs pour n’importe quel dépôt GitHub, GitLab ou Bitbucket ! Il suffit d’entrer un nom de dépôt, et ReverseAnalyse :
 
 1. Analyse la structure du code  
 2. Génère une documentation complète  
@@ -34,8 +32,8 @@
 
 ```bash
 # Cloner le dépôt
-git clone https://github.com/AsyncFuncAI/deepwiki-open.git
-cd deepwiki-open
+git clone https://github.com/EyaHaddad/ReverseAnalyse.git
+cd ReverseAnalyse
 
 # Créer un fichier .env avec vos clés API
 echo "GOOGLE_API_KEY=votre_clé_google" > .env
@@ -53,7 +51,7 @@ echo "AZURE_OPENAI_VERSION=version_api" >> .env
 docker-compose up
 ```
 
-Pour des instructions détaillées sur l’utilisation de DeepWiki avec Ollama et Docker, consultez [Ollama Instructions](Ollama-instruction.md).
+Pour des instructions détaillées sur l’utilisation de ReverseAnalyse avec Ollama et Docker, consultez [Ollama Instructions](Ollama-instruction.md).
 
 > 💡 **Où obtenir ces clés :**
 > - Obtenez une clé API Google depuis [Google AI Studio](https://makersuite.google.com/app/apikey)
@@ -102,7 +100,7 @@ npm run dev
 yarn dev
 ```
 
-#### Étape 4 : Utiliser DeepWiki!
+#### Étape 4 : Utiliser ReverseAnalyse!
 
 1. Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur
 2. Entrer l'adresse d'un dépôt GitHub, GitLab ou Bitbucket (comme `https://github.com/openai/codex`, `https://github.com/microsoft/autogen`, `https://gitlab.com/gitlab-org/gitlab`, or `https://bitbucket.org/redradish/atlassian_app_versions`)
@@ -111,7 +109,7 @@ yarn dev
 
 ## 🔍 Comment ça marche
 
-DeepWiki utilise l'IA pour :
+ReverseAnalyse utilise l'IA pour :
 
 1. Cloner et analyser le dépôt GitHub, GitLab ou Bitbucket (y compris les dépôts privés avec authentification par jeton d'accès)
 2. Créer des embeddings du code pour une récupération intelligente
@@ -146,7 +144,7 @@ graph TD
     D --> F[Créer des diagrammes]
     E --> G[Organiser en Wiki]
     F --> G
-    G --> H[DeepWiki interactif]
+    G --> H[ReverseAnalyse interactif]
 
     classDef process stroke-width:2px;
     classDef data stroke-width:2px;
@@ -162,7 +160,7 @@ graph TD
 ## 🛠️ Structure du Projet
 
 ```
-deepwiki/
+ReverseAnalyse/
 ├── api/                  # Serveur API Backend
 │   ├── main.py           # Point d'entrée de l'API
 │   ├── api.py            # Implémentation FastAPI
@@ -183,7 +181,7 @@ deepwiki/
 
 ## 🤖 Système de sélection de modèles
 
-DeepWiki implémente désormais un système de sélection de modèles flexible, qui prend en charge plusieurs fournisseurs de LLM :
+ReverseAnalyse implémente désormais un système de sélection de modèles flexible, qui prend en charge plusieurs fournisseurs de LLM :
 
 ### Fournisseurs et modèles pris en charge
 
@@ -213,12 +211,12 @@ OPENAI_BASE_URL=https://custom-api-endpoint.com/v1  # Optionnel, pour les endpoi
 OLLAMA_HOST=votre_hôte_ollama # Optionnel, si Ollama n'est pas local. défaut: http://localhost:11434
 
 # Répertoire de configuration
-DEEPWIKI_CONFIG_DIR=/chemin/vers/dossier/de/configuration  # Optionnel, pour personaliser le répertoire de stockage de la configuration
+ReverseAnalyse_CONFIG_DIR=/chemin/vers/dossier/de/configuration  # Optionnel, pour personaliser le répertoire de stockage de la configuration
 ```
 
 ### Fichiers de Configuration
 
-DeepWiki utilise des fichiers de configuration JSON pour gérer différents aspects du système :
+ReverseAnalyse utilise des fichiers de configuration JSON pour gérer différents aspects du système :
 
 1. **`generator.json`** : Configuration des modèles de génération de texte
    - Définit les fournisseurs de modèles disponibles (Google, OpenAI, OpenRouter, Azure, Ollama)
@@ -234,7 +232,7 @@ DeepWiki utilise des fichiers de configuration JSON pour gérer différents aspe
    - Contient des filtres de fichiers pour exclure certains fichiers et répertoires
    - Définit les limites de taille des dépôts et les règles de traitement
 
-Par défaut, ces fichiers sont situés dans le répertoire `api/config/`. Vous pouvez personnaliser leur emplacement à l'aide de la variable d'environnement `DEEPWIKI_CONFIG_DIR`.
+Par défaut, ces fichiers sont situés dans le répertoire `api/config/`. Vous pouvez personnaliser leur emplacement à l'aide de la variable d'environnement `ReverseAnalyse_CONFIG_DIR`.
 
 ### Sélection de Modèles Personnalisés pour les Fournisseurs de Services
 
@@ -254,7 +252,7 @@ La configuration `base_url` du client OpenAI est principalement conçue pour les
 - Permet aux organisations d'utiliser leurs propres services LLM auto-hébergés ou déployés sur mesure.
 - Prend en charge l'intégration avec des services tiers compatibles avec l'API OpenAI.
 
-**Bientôt disponible** : Dans les prochaines mises à jour, DeepWiki prendra en charge un mode où les utilisateurs devront fournir leurs propres clés API dans les requêtes. Cela permettra aux entreprises clientes disposant de canaux privés d'utiliser leurs accords API existants sans partager leurs informations d'identification avec le déploiement DeepWiki.
+**Bientôt disponible** : Dans les prochaines mises à jour, ReverseAnalyse prendra en charge un mode où les utilisateurs devront fournir leurs propres clés API dans les requêtes. Cela permettra aux entreprises clientes disposant de canaux privés d'utiliser leurs accords API existants sans partager leurs informations d'identification avec le déploiement ReverseAnalyse.
 
 ## 🧩 Utilisation de modèles d'embedding compatibles avec OpenAI (par exemple, Alibaba Qwen)
 
@@ -272,7 +270,7 @@ Cela vous permet de passer facilement à n'importe quel service d'embedding comp
 
 ### Journalisation (Logging)
 
-DeepWiki utilise le module `logging` intégré de Python pour la sortie de diagnostics. Vous pouvez configurer la verbosité et la destination du fichier journal via des variables d'environnement :
+ReverseAnalyse utilise le module `logging` intégré de Python pour la sortie de diagnostics. Vous pouvez configurer la verbosité et la destination du fichier journal via des variables d'environnement :
 
 | Variable        | Description                                                               | Valeur par défaut             |
 |-----------------|---------------------------------------------------------------------------|------------------------------|
@@ -321,32 +319,32 @@ docker-compose up
 | `OLLAMA_HOST`           | Hôte Ollama (par défaut : http://localhost:11434)               | Non        | Requis uniquement si vous souhaitez utiliser un serveur Ollama externe                                   |
 | `PORT`                  | Port du serveur API (par défaut : 8001)                         | Non        | Si vous hébergez l'API et le frontend sur la même machine, assurez-vous de modifier le port de `SERVER_BASE_URL` en conséquence |
 | `SERVER_BASE_URL`       | URL de base du serveur API (par défaut : http://localhost:8001) | Non        |                                                                                                           |
-| `DEEPWIKI_AUTH_MODE`    | Définir sur `true` ou `1` pour activer le mode verrouillé        | Non        | La valeur par défaut est `false`. Si activé, `DEEPWIKI_AUTH_CODE` est requis.                             |
-| `DEEPWIKI_AUTH_CODE`    | Le code requis pour la génération de wiki lorsque `DEEPWIKI_AUTH_MODE` est activé. | Non        | Utilisé uniquement si `DEEPWIKI_AUTH_MODE` est `true` ou `1`.                          |
+| `ReverseAnalyse_AUTH_MODE`    | Définir sur `true` ou `1` pour activer le mode verrouillé        | Non        | La valeur par défaut est `false`. Si activé, `ReverseAnalyse_AUTH_CODE` est requis.                             |
+| `ReverseAnalyse_AUTH_CODE`    | Le code requis pour la génération de wiki lorsque `ReverseAnalyse_AUTH_MODE` est activé. | Non        | Utilisé uniquement si `ReverseAnalyse_AUTH_MODE` est `true` ou `1`.                          |
 
 Si vous n'utilisez pas le mode Ollama, vous devez configurer une clé API OpenAI pour les embeddings. Les autres clés API ne sont requises que si vous configurez et utilisez des modèles des fournisseurs correspondants.
 
 ## Mode vérouillé
 
-DeepWiki peut être configuré pour fonctionner en mode vérouillé, où la génération de wiki nécessite un code d'autorisation valide. Ceci est utile si vous souhaitez contrôler qui peut utiliser la fonctionnalité de génération.
+ReverseAnalyse peut être configuré pour fonctionner en mode vérouillé, où la génération de wiki nécessite un code d'autorisation valide. Ceci est utile si vous souhaitez contrôler qui peut utiliser la fonctionnalité de génération.
 Restreint l'initialisation du frontend et protège la suppression du cache, mais n'empêche pas complètement la génération backend si les points de terminaison de l'API sont atteints directement.
 
 Pour activer le mode vérouillé, définissez les variables d'environnement suivantes :
 
-- `DEEPWIKI_AUTH_MODE` : définissez cette variable sur `true` ou `1`. Une fois activée, l'interface affichera un champ de saisie pour le code d'autorisation.
-- `DEEPWIKI_AUTH_CODE` : définissez cette variable sur le code secret souhaité. Restreint l'initialisation du frontend et protège la suppression du cache, mais n'empêche pas complètement la génération backend si les points de terminaison de l'API sont atteints directement.
+- `ReverseAnalyse_AUTH_MODE` : définissez cette variable sur `true` ou `1`. Une fois activée, l'interface affichera un champ de saisie pour le code d'autorisation.
+- `ReverseAnalyse_AUTH_CODE` : définissez cette variable sur le code secret souhaité. Restreint l'initialisation du frontend et protège la suppression du cache, mais n'empêche pas complètement la génération backend si les points de terminaison de l'API sont atteints directement.
 
-Si `DEEPWIKI_AUTH_MODE` n'est pas défini ou est défini sur `false` (ou toute autre valeur que `true`/`1`), la fonctionnalité d'autorisation sera désactivée et aucun code ne sera requis.
+Si `ReverseAnalyse_AUTH_MODE` n'est pas défini ou est défini sur `false` (ou toute autre valeur que `true`/`1`), la fonctionnalité d'autorisation sera désactivée et aucun code ne sera requis.
 
 ### Configuration Docker
 
-Vous pouvez utiliser Docker pour exécuter DeepWiki :
+Vous pouvez utiliser Docker pour exécuter ReverseAnalyse :
 
 #### Exécution du conteneur
 
 ```bash
 # Récupérer l'image depuis GitHub Container Registry
-docker pull ghcr.io/asyncfuncai/deepwiki-open:latest
+docker pull ghcr.io/asyncfuncai/ReverseAnalyse-open:latest
 
 # Exécuter le conteneur avec les variables d'environnement
 docker run -p 8001:8001 -p 3000:3000 \
@@ -359,7 +357,7 @@ docker run -p 8001:8001 -p 3000:3000 \
   -e AZURE_OPENAI_VERSION=votre_version_azure_openai \
 
   -v ~/.adalflow:/root/.adalflow \
-  ghcr.io/asyncfuncai/deepwiki-open:latest
+  ghcr.io/asyncfuncai/ReverseAnalyse-open:latest
 ```
 
 Cette commande monte également `~/.adalflow` de votre hôte vers `/root/.adalflow` dans le conteneur. Ce chemin est utilisé pour stocker :
@@ -396,7 +394,7 @@ echo "OLLAMA_HOST=votre_hôte_ollama" >> .env
 docker run -p 8001:8001 -p 3000:3000 \
   -v $(pwd)/.env:/app/.env \
   -v ~/.adalflow:/root/.adalflow \
-  ghcr.io/asyncfuncai/deepwiki-open:latest
+  ghcr.io/asyncfuncai/ReverseAnalyse-open:latest
 ```
 
 Cette commande monte également `~/.adalflow` de votre hôte vers `/root/.adalflow` dans le conteneur. Ce chemin est utilisé pour stocker :
@@ -412,11 +410,11 @@ If you want to build the Docker image locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/AsyncFuncAI/deepwiki-open.git
-cd deepwiki-open
+git clone https://github.com/AsyncFuncAI/ReverseAnalyse-open.git
+cd ReverseAnalyse-open
 
 # Build the Docker image
-docker build -t deepwiki-open .
+docker build -t ReverseAnalyse-open .
 
 # Run the container
 docker run -p 8001:8001 -p 3000:3000 \
@@ -427,7 +425,7 @@ docker run -p 8001:8001 -p 3000:3000 \
   -e AZURE_OPENAI_ENDPOINT=votre_endpoint_azure_openai \
   -e AZURE_OPENAI_VERSION=votre_version_azure_openai \
   -e OLLAMA_HOST=votre_hôte_ollama \
-  deepwiki-open
+  ReverseAnalyse-open
 ```
 
 #### Utilisation de certificats auto-signés dans Docker
@@ -457,14 +455,14 @@ Pour plus de détails, consultez le [README de l’API](./api/README.md).
 
 ## 🔌 Intégration OpenRouter
 
-DeepWiki prend désormais en charge [OpenRouter](https://openrouter.ai/) en tant que fournisseur de modèles, vous donnant accès à des centaines de modèles d'IA via une seule API :
+ReverseAnalyse prend désormais en charge [OpenRouter](https://openrouter.ai/) en tant que fournisseur de modèles, vous donnant accès à des centaines de modèles d'IA via une seule API :
 
 - **Options de modèles multiples** : accédez aux modèles d'OpenAI, Anthropic, Google, Meta, Mistral, et plus encore
 - **Configuration simple** : ajoutez simplement votre clé API OpenRouter et sélectionnez le modèle que vous souhaitez utiliser
 - **Rentabilité** : choisissez des modèles qui correspondent à votre budget et à vos besoins en termes de performances
 - **Commutation facile** : basculez entre différents modèles sans modifier votre code
 
-### Comment utiliser OpenRouter avec DeepWiki
+### Comment utiliser OpenRouter avec ReverseAnalyse
 
 1. **Obtenez une clé API** : inscrivez-vous sur [OpenRouter](https://openrouter.ai/) et obtenez votre clé API
 2. **Ajouter à l'environnement** : ajoutez `OPENROUTER_API_KEY=votre_clé` à votre fichier `.env`
@@ -505,8 +503,8 @@ Pour utiliser DeepResearch, activez simplement le commutateur "Deep Research" da
 
 ## 📱 Captures d'écran
 
-![Interface principale de DeepWiki](screenshots/Interface.png)
-*L'interface principale de DeepWiki*
+![Interface principale de ReverseAnalyse](screenshots/Interface.png)
+*L'interface principale de ReverseAnalyse*
 
 ![Prise en charge des dépôts privés](screenshots/privaterepo.png)
 *Accédez aux dépôts privés avec des jetons d'accès personnels*
@@ -516,9 +514,9 @@ Pour utiliser DeepResearch, activez simplement le commutateur "Deep Research" da
 
 ### Vidéo de démonstration
 
-[![Vidéo de démo DeepWiki](https://img.youtube.com/vi/zGANs8US8B4/0.jpg)](https://youtu.be/zGANs8US8B4)
+[![Vidéo de démo ReverseAnalyse](https://img.youtube.com/vi/zGANs8US8B4/0.jpg)](https://youtu.be/zGANs8US8B4)
 
-*Regardez DeepWiki en action !*
+*Regardez ReverseAnalyse en action !*
 ## ❓ Dépannage
 
 ### Problèmes de clé API
@@ -559,6 +557,6 @@ Projet sous licence MIT – Voir le fichier [LICENSE](LICENSE).
 
 ## ⭐ Historique des stars
 
-[![Historique des stars](https://api.star-history.com/svg?repos=AsyncFuncAI/deepwiki-open&type=Date)](https://star-history.com/#AsyncFuncAI/deepwiki-open&Date)
+[![Historique des stars](https://api.star-history.com/svg?repos=AsyncFuncAI/ReverseAnalyse-open&type=Date)](https://star-history.com/#AsyncFuncAI/ReverseAnalyse-open&Date)
 
 

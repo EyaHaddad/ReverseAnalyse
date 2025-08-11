@@ -25,8 +25,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Deepwiki Open Source | Sheing Ng",
-  description: "Created by Sheing Ng",
+  title: "Trustresponse",
+  description: "Created by TrustResponse",
 };
 
 export default function RootLayout({
@@ -39,7 +39,7 @@ export default function RootLayout({
       <body
         className={`${notoSansJP.variable} ${notoSerifJP.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem>
           <LanguageProvider>
             {children}
           </LanguageProvider>

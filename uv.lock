@@ -340,7 +340,7 @@ wheels = [
 ]
 
 [[package]]
-name = "deepwiki-open"
+name = "reverse_analyse"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
