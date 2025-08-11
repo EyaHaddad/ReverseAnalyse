@@ -25,7 +25,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Reverse Analyse | TrustResponse",
+  title: "Trustresponse",
   description: "Created by TrustResponse",
 };
 
@@ -39,7 +39,7 @@ export default function RootLayout({
       <body
         className={`${notoSansJP.variable} ${notoSerifJP.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem>
           <LanguageProvider>
             {children}
           </LanguageProvider>

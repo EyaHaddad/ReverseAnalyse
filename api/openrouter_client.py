@@ -131,8 +131,7 @@ class OpenRouterClient(ModelClient):
             headers = {
                 "Authorization": f"Bearer {self.async_client['api_key']}",
                 "Content-Type": "application/json",
-                "HTTP-Referer": "https://github.com/AsyncFuncAI/ReverseAnalyse",  # Optional
-                "X-Title": "ReverseAnalyse"  # Optional
+                "HTTP-Referer": "https://github.com/EyaHaddad/ReverseAnalyse",  # Optional
             }
 
             # Always use non-streaming mode for OpenRouter
